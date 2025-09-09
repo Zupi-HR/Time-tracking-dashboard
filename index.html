@@ -4,33 +4,54 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
+
   <title>Frontend Mentor | Time tracking dashboard</title>
+
 </head>
 
 <body>
+  <main class="dashboard">
+    <div class="dashboard__grid">
 
-  <main class="dashboard-grid">
-    <header class="user-card">
-      <div class="user-details">
-        <img src="images/image-jeremy.png" alt="A photo of Jeremy Robson" class="user-avatar">
-        <div>
-          <p class="report-for">Report for</p>
-          <h1 class="user-name">Jeremy Robson</h1>
+      <section class="profile-card">
+        <div class="profile-card__user">
+          <img class="profile-card__avatar" src="./images/image-jeremy.png" alt="Headshot of Jeremy Robson">
+          <div>
+            <p class="profile-card__subtitle">Report for</p>
+            <h1 class="profile-card__name">Jeremy Robson</h1>
+          </div>
         </div>
-      </div>
-      <nav class="timeframe-switcher">
-        <ul>
-          <li><button data-timeframe="daily">Daily</button></li>
-          <li><button data-timeframe="weekly" class="active">Weekly</button></li>
-          <li><button data-timeframe="monthly">Monthly</button></li>
-        </ul>
-      </nav>
-    </header>
+        <nav class="profile-card__nav">
+          <ul class="timeframe-list">
+            <li><button class="timeframe-btn" data-timeframe="daily">Daily</button></li>
+            <li><button class="timeframe-btn active" aria-current="true" data-timeframe="weekly">Weekly</button></li>
+            <li><button class="timeframe-btn" data-timeframe="monthly">Monthly</button></li>
+          </ul>
+        </nav>
+      </section>
 
-    <!-- Activity cards will be dynamically inserted here by script.js -->
+
+      <!-- <article class="activity-card activity-card--work">
+        <div class="activity-card__body">
+          <header class="activity-card__header">
+            <h2 class="activity-card__title">Work</h2>
+            <button class="activity-card__options" aria-label="Options for Work category">
+              <img src="./images/icon-ellipsis.svg" alt="">
+            </button>
+          </header>
+          <div class="activity-card__stats">
+            <p class="activity-card__current-time">32hrs</p>
+            <p class="activity-card__previous-time">Last Week - 36hrs</p>
+          </div>
+        </div>
+      </article> -->
+
+    </div>
   </main>
 </body>
 
