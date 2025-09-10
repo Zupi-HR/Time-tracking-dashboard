@@ -3,6 +3,8 @@ const currentElement = document.querySelector('[aria-current="true"]');
 const currentTimeframe = currentElement.dataset.timeframe;
 const timeframeList = document.querySelector(".timeframe-list");
 
+let activitiesData = [];
+
 async function getData() {
   const url = "data.json";
   try {
@@ -75,20 +77,37 @@ function createActivityCard(activity, timeframeName) {
   activityCardStats.append(currentTime, previousTime);
   activityCardBody.append(activityCardHeader, activityCardStats);
   activityCard.appendChild(activityCardBody);
-
   return activityCard;
 }
 
-async function init() {
-  const data = await getData();
-  if (!data) {
-    console.error("Failed to fetch activity data. Cannot build dashboard");
+async function handleTimeframeClick(event) {
+  const clickedButton = event.target.closest(".timeframe-btn");
+  if (!clickedButton) return;
+  const selectedTimeframe = clickedButton.dataset.timeframe;
+  renderCards(selectedTimeframe);
+}
+
+function renderCards(timeframe) {
+  dashboardGrid
+    .querySelectorAll(".activity-card")
+    .forEach((card) => card.remove());
+
+  if (!activitiesData || activitiesData.length === 0) {
+    console.error("Failed to read activity data. Data is invalid or empty!");
     return;
   }
-  for (const activity of data) {
-    const activityCard = createActivityCard(activity, currentTimeframe);
-    dashboardGrid.appendChild(activityCard);
+  const fragment = document.createDocumentFragment();
+  for (const activity of activitiesData) {
+    const activityCard = createActivityCard(activity, timeframe);
+    fragment.appendChild(activityCard);
   }
+  dashboardGrid.appendChild(fragment);
+}
+
+async function init() {
+  activitiesData = await getData();
+  renderCards(currentTimeframe);
+  timeframeList.addEventListener("click", handleTimeframeClick);
 }
 
 init();
