@@ -1,6 +1,4 @@
 const dashboardGrid = document.querySelector(".dashboard__grid");
-const currentElement = document.querySelector('[aria-current="true"]');
-const currentTimeframe = currentElement.dataset.timeframe;
 const timeframeList = document.querySelector(".timeframe-list");
 
 let activitiesData = [];
@@ -59,19 +57,14 @@ function createActivityCard(activity, timeframeName) {
   currentTime.classList.add("activity-card__current-time");
 
   const previousTime = document.createElement("p");
-  let label = "";
-  switch (timeframeName) {
-    case "weekly":
-      label = "Last Week";
-      break;
-    case "monthly":
-      label = "Last Month";
-      break;
-    default:
-      label = "Yesterday";
-      break;
-  }
-  previousTime.textContent = `${label} - ${activity.timeframes[timeframeName].previous}hrs`;
+
+  const timeframeLabels = {
+    weekly: "Last Week",
+    monthly: "Last Month",
+    daily: "Yesterday",
+  };
+
+  previousTime.textContent = `${timeframeLabels[timeframeName]} - ${activity.timeframes[timeframeName].previous}hrs`;
   previousTime.classList.add("activity-card__previous-time");
 
   activityCardStats.append(currentTime, previousTime);
@@ -80,9 +73,14 @@ function createActivityCard(activity, timeframeName) {
   return activityCard;
 }
 
-async function handleTimeframeClick(event) {
+function handleTimeframeClick(event) {
   const clickedButton = event.target.closest(".timeframe-btn");
-  if (!clickedButton) return;
+  if (!clickedButton || clickedButton.hasAttribute("aria-current")) {
+    return;
+  }
+  const currentActiveBtn = timeframeList.querySelector('[aria-current="true"]');
+  currentActiveBtn?.removeAttribute("aria-current");
+  clickedButton.setAttribute("aria-current", "true");
   const selectedTimeframe = clickedButton.dataset.timeframe;
   renderCards(selectedTimeframe);
 }
@@ -106,7 +104,13 @@ function renderCards(timeframe) {
 
 async function init() {
   activitiesData = await getData();
-  renderCards(currentTimeframe);
+  if (!activitiesData) return;
+  const initialTimeFrame = "weekly";
+  const initialActiveButton = timeframeList.querySelector(
+    `[data-timeframe="${initialTimeFrame}"]`
+  );
+  initialActiveButton?.setAttribute("aria-current", "true");
+  renderCards(initialTimeFrame);
   timeframeList.addEventListener("click", handleTimeframeClick);
 }
 
