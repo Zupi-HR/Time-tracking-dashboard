@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+/*
+  ========================================
+  CSS Reset
+  ========================================
+*/
+
+/*
+  1. Use a more intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/*
+  2. Remove default margin and padding
+*/
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/*
+  3. Allow percentage-based heights in the application
+*/
+html,
+body {
+    height: 100%;
+}
+
+/*
+  4. Improve media defaults
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+/*
+  5. Remove built-in form typography styles and list styles
+*/
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+/*
+  6. Avoid text overflows
+*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+
+:root {
+    /*
+  ========================================
+  Color Palette
+  ========================================
+  */
+
+    /* Primary Accent Color */
+    --clr-primary-action: hsl(246, 80%, 60%);
+    /* #5747EA */
+
+    /* Activity Accent Colors */
+    --clr-accent-work: hsl(15, 100%, 70%);
+    /* #FF8B64 */
+    --clr-accent-play: hsl(195, 74%, 62%);
+    /* #55C2E6 */
+    --clr-accent-study: hsl(348, 100%, 68%);
+    /* #FF5E7D */
+    --clr-accent-exercise: hsl(145, 58%, 55%);
+    /* #4BCF82 */
+    --clr-accent-social: hsl(264, 64%, 52%);
+    /* #7335D2 */
+    --clr-accent-self-care: hsl(43, 84%, 65%);
+    /* #F1C75B */
+
+    /* Neutral Colors */
+    --clr-neutral-950: hsl(226, 43%, 10%);
+    /* #0E1323 - Main Background */
+    --clr-neutral-900: hsl(235, 46%, 20%);
+    /* #1C204B - Card Background */
+    --clr-neutral-800: hsl(235, 41%, 34%);
+    /* #33397A - Profile Nav Hover */
+    --clr-neutral-500: hsl(235, 45%, 61%);
+    /* #7078C9 - Inactive Text */
+    --clr-neutral-200: hsl(236, 100%, 87%);
+    /* #BBC0FF - Subtitle Text */
+    --clr-neutral-100: hsl(0, 0%, 100%);
+    /* #FFFFFF - Primary Text */
+
+    /*
+  ========================================
+  Typography
+  ========================================
+  */
+
+    /* Font Family */
+    --ff-primary: "Rubik", sans-serif;
+
+    /* Font Weights */
+    --fw-light: 300;
+    --fw-regular: 400;
+    --fw-medium: 500;
+
+    /* Font Sizes (based on a 16px root font-size) */
+    --fs-300: 0.9375rem;
+    /* 15px */
+    --fs-400: 1.125rem;
+    /* 18px */
+    --fs-500: 1.5rem;
+    /* 24px */
+    --fs-600: 2rem;
+    /* 32px */
+    --fs-700: 2.5rem;
+    /* 40px */
+    --fs-800: 3.5rem;
+    /* 56px */
+
+    /* Line Heights */
+    --lh-tight: 1.2;
+
+    /*
+  ========================================
+  Layout & Sizing
+  ========================================
+  */
+
+    /* Spacing Scale */
+    --space-100: 0.5rem;
+    /* 8px */
+    --space-200: 1rem;
+    /* 16px */
+    --space-300: 1.5rem;
+    /* 24px */
+    --space-400: 2rem;
+    /* 32px */
+    --space-500: 2.5rem;
+    /* 40px */
+
+    /* Other Layout Properties */
+    --border-radius-card: 1rem;
+    /* 16px */
+    --transition-fast: 200ms ease-in-out;
+}
+
+body {
+    font-family: var(--ff-primary);
+    background-color: var(--clr-neutral-950);
+    line-height: 1.5;
+}
