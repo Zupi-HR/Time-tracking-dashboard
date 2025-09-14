@@ -176,6 +176,7 @@ body {
   padding: var(--space-300);
 }
 
+
 .dashboard__grid {
   display: grid;
 
@@ -330,4 +331,28 @@ body {
   background-color: var(--clr-accent-self-care);
   background-image: url(images/icon-self-care.svg);
   background-position: top -1rem right 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .dashboard__grid {
+    grid-template-columns: repeat(3, minmax(218px, 1fr));
+  }
+
+  .profile-card {
+    grid-column: 1 / -1;
+  }
+
+  .timeframe-list {
+    justify-content: space-evenly;
+
+  }
+
+  .activity-card__stats {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .activity-card__current-time {
+    font-size: var(--fs-800);
+  }
 }
