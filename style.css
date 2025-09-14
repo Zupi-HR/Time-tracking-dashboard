@@ -245,12 +245,11 @@ body {
 
 .activity-card {
   border-radius: var(--border-radius-card);
-  background-color: red;
-  /* for debugging purpose */
   padding-top: var(--space-500);
   overflow: hidden;
   cursor: pointer;
   transition: background-color var(--transition-fast);
+  background-repeat: no-repeat;
 }
 
 .activity-card:hover .activity-card__body {
@@ -274,7 +273,7 @@ body {
 
 .activity-card__title {
   font-size: var(--fs-400);
-  font-weight: var(--fw-light);
+  font-weight: var(--fw-medium);
 }
 
 .activity-card__options {
@@ -295,4 +294,40 @@ body {
   font-size: var(--fs-300);
   color: var(--clr-neutral-200);
   font-weight: var(--fw-light);
+}
+
+.activity-card--work {
+  background-color: var(--clr-accent-work);
+  background-image: url(images/icon-work.svg);
+  background-position: top -0.7rem right 1.25rem;
+}
+
+.activity-card--play {
+  background-color: var(--clr-accent-play);
+  background-image: url(images/icon-play.svg);
+  background-position: top -0.2rem right 1.25rem;
+}
+
+.activity-card--study {
+  background-color: var(--clr-accent-study);
+  background-image: url(images/icon-study.svg);
+  background-position: top -0.3rem right 1.25rem;
+}
+
+.activity-card--exercise {
+  background-color: var(--clr-accent-exercise);
+  background-image: url(images/icon-exercise.svg);
+  background-position: top 0rem right 1.25rem;
+}
+
+.activity-card--social {
+  background-color: var(--clr-accent-social);
+  background-image: url(images/icon-social.svg);
+  background-position: top -1rem right 1.25rem;
+}
+
+.activity-card--self-care {
+  background-color: var(--clr-accent-self-care);
+  background-image: url(images/icon-self-care.svg);
+  background-position: top -1rem right 1.25rem;
 }
