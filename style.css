@@ -249,6 +249,12 @@ body {
   /* for debugging purpose */
   padding-top: var(--space-500);
   overflow: hidden;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.activity-card:hover .activity-card__body {
+  background-color: var(--clr-neutral-800);
 }
 
 .activity-card__body {
@@ -257,6 +263,7 @@ body {
   border-top-right-radius: var(--border-radius-card);
   background-color: var(--clr-neutral-900);
 }
+
 
 .activity-card__header,
 .activity-card__stats {
@@ -281,7 +288,6 @@ body {
 
 .activity-card__current-time {
   font-size: var(--fs-600);
-  font-weight: var(--fw-light);
   font-weight: var(--fw-light);
 }
 
