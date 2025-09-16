@@ -179,7 +179,8 @@ body {
 
 .dashboard__grid {
   display: grid;
-
+  width: 100%;
+  max-width: 1116px;
   gap: var(--space-300);
 }
 
@@ -245,6 +246,8 @@ body {
 }
 
 .activity-card {
+  display: flex;
+  flex-direction: column;
   border-radius: var(--border-radius-card);
   padding-top: var(--space-500);
   overflow: hidden;
@@ -262,6 +265,8 @@ body {
   border-top-left-radius: var(--border-radius-card);
   border-top-right-radius: var(--border-radius-card);
   background-color: var(--clr-neutral-900);
+  flex: 1;
+
 }
 
 
@@ -354,5 +359,44 @@ body {
 
   .activity-card__current-time {
     font-size: var(--fs-800);
+  }
+}
+
+@media (min-width: 1200px) {
+  .dashboard__grid {
+    grid-template-columns: repeat(4, minmax(218px, 1fr));
+  }
+
+  .profile-card {
+    grid-column: 1 / 2;
+    grid-row: span 2;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .profile-card__user {
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 0 0 354px;
+  }
+
+  .profile-card__avatar {
+    width: 74px;
+    height: 74px;
+  }
+
+  .profile-card__name {
+    font-size: var(--fs-700);
+    line-height: var(--lh-tight);
+  }
+
+  .profile-card__nav {
+    flex: 0 0 166px;
+  }
+
+  .timeframe-list {
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
   }
 }
